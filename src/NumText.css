@@ -1,0 +1,65 @@
+.NumText {
+  height: 80px;
+  display: inline-flex;
+  vertical-align: bottom;
+  font-size: 13px;
+  font-family: monospace;
+  line-height: 1.4;
+  background: light-dark(white, #4a4a4a);
+  overflow: hidden;
+  cursor: text;
+  user-select: none;
+  -webkit-text-size-adjust: 100%;
+
+  .Gutter {
+    counter-reset: line-number;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: inside none;
+  }
+
+  .LineNumber::before {
+    content: counter(line-number);
+    counter-increment: line-number;
+    padding: 0 6px;
+    display: block;
+    text-align: right;
+    opacity: 0.45;
+  }
+
+  .LineNumber:first-child::before {
+    padding-top: calc(var(--padding) + var(--overscroll-top,0px));
+  }
+  
+  .LineNumber:last-child {
+    flex-basis: 100%;
+  }
+  
+  .LineNumber:last-child::before {
+    padding-bottom: calc(var(--padding) + var(--overscroll-bottom,0px));
+    height: 100%;
+  }
+  
+  .LineNumber:last-child::after {
+    content: "";
+    display: block;
+    height: var(--overflow-offset-y,0px);
+  }
+  
+  .Textarea {
+    padding: 6px;
+    min-width: 0;
+    flex-basis: 100%;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    resize: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}

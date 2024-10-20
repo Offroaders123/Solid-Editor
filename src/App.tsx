@@ -1,4 +1,5 @@
 import { createSignal } from "solid-js";
+import NumText from "./NumText.js";
 import indexURL from "./index.js?url";
 import htmlURL from "../index.html?url";
 import "./App.css";
@@ -76,10 +77,9 @@ function Editors(props: { editors: Accessor<EditorState[]>; }) {
 
 function Editor(props: { editor: EditorState; }) {
   return (
-    <div class="Editor">
-      <ol></ol>
-      <textarea>{props.editor.value}</textarea>
-    </div>
+    <NumText
+      value={props.editor.value}
+    />
   );
 }
 
